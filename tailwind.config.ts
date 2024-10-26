@@ -12,6 +12,7 @@ const config: Config = {
         footer: "#1C1B1B",
         secText: "#6E9501",
         thirdText: "#C2D965",
+      
       },
     },
   },

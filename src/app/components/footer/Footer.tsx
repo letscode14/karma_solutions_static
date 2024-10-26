@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import logo from "../../asset/logoOnly-fotor-20241017221923.png";
+import logo from "../../../../public/11zon_cropped.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
@@ -55,11 +55,23 @@ export default function Footer() {
               />
               <span className="text-white">karmaflower6644@gmail.com</span>
             </div>
-            <div className="max-w-[300px] mt-5 items-center text-gray-400 text-[26px] flex">
-              <FontAwesomeIcon className=" me-3  " icon={faFacebook} />{" "}
-              <FontAwesomeIcon className=" me-3 " icon={faInstagram} />{" "}
-              <FontAwesomeIcon className=" me-3 " icon={faTwitter} />{" "}
-              <FontAwesomeIcon className=" me-3 " icon={faWhatsapp} />
+            <div className="max-w-[300px] mt-5  items-center text-gray-400 text-[26px] flex">
+              <FontAwesomeIcon
+                className=" me-3 hover:text-white  transition-all duration-200"
+                icon={faFacebook}
+              />{" "}
+              <FontAwesomeIcon
+                className=" me-3 hover:text-white transition-all duration-200"
+                icon={faInstagram}
+              />{" "}
+              <FontAwesomeIcon
+                className=" me-3 hover:text-white transition-all duration-200"
+                icon={faTwitter}
+              />{" "}
+              <FontAwesomeIcon
+                className=" me-3 hover:text-white transition-all duration-200"
+                icon={faWhatsapp}
+              />
             </div>
           </div>
         </div>
