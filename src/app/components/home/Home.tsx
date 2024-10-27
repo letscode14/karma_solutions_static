@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from "../header/Header";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import {
+  faArrowDown,
   faClipboardCheck,
   faSmile,
   faStar,
@@ -21,7 +22,7 @@ export default function Home() {
       <div className="relative h-screen flex flex-col z-10">
         <Header />
 
-        <div className="hey flex-grow flex items-center justify-between px-28">
+        <div className=" flex-grow flex items-center justify-between px-28">
           <div className="w-[50%] ">
             <div className="text-white text-8xl font-bold">EXPERT</div>
             <TypewriterEffectSmooth
@@ -35,7 +36,7 @@ export default function Home() {
               cursorClassName=""
             />
             <div className="text-secText text-8xl font-bold">SOLUTIONS</div>
-            <div className="text-white font-serif font-light text-xl mt-2 mb-3 font-semibold">
+            <div className="text-white font-serif font-thin text-xl mt-2 mb-3 font-semibold">
               “From Gardens to Guarding – We’ve Got You Covered.”
             </div>
             <div className="text-secText text-3xl my-3 font-bold">
@@ -56,10 +57,10 @@ export default function Home() {
                 </div>
                 <div className=" ms-4 ">
                   <div className="text-xl uppercase">
-                    25 years of Experience
+                    35 years of Experience
                   </div>
                   <div className="opacity-90 mt-1 font-serif max-w-60 text-base  font-thin">
-                    With 25 years of expertise, we have consistently delivered
+                    With 35 years of expertise, we have consistently delivered
                     exceptional service
                   </div>
                 </div>
@@ -92,6 +93,19 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="opacity-75 h-12 flex justify-center">
+          <div className="w-[1px] h-full bg-white mx-4 relative flex flex-col justify-between items-center">
+            <a
+              className="flex cursor-pointer top-[-47px] items-center justify-center absolute border rounded-full h-12 w-12 animate-bounce-slow "
+              href="#about"
+            >
+              <FontAwesomeIcon
+                icon={faArrowDown}
+                className="text-2xl text-white"
+              />
+            </a>
           </div>
         </div>
       </div>

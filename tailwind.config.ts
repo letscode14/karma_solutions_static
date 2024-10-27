@@ -12,7 +12,15 @@ const config: Config = {
         footer: "#1C1B1B",
         secText: "#6E9501",
         thirdText: "#C2D965",
-      
+      },
+      animation: {
+        "bounce-slow": "bounce-slow 1s infinite",
+      },
+      keyframes: {
+        "bounce-slow": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-15px)" },
+        },
       },
     },
   },
