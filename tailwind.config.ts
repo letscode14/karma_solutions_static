@@ -22,6 +22,13 @@ const config: Config = {
           "50%": { transform: "translateY(-15px)" },
         },
       },
+      screens: {
+        md: "700px",
+        lg: "900px",
+        xl: "1200px",
+        "2xl": "1500px",
+        "3xl": "1700px",
+      },
     },
   },
   plugins: [],

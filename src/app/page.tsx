@@ -10,13 +10,13 @@ export default function Home() {
       <section id="home">
         <HomePage />
       </section>
-      <section id="about">
+      {/* <section id="about">
         <About />
       </section>
 
       <section id="contact">
         <Footer />
-      </section>
+      </section> */}
     </div>
   );
 }
