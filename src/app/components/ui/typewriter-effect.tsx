@@ -143,7 +143,7 @@ export const TypewriterEffectSmooth = ({
   };
 
   return (
-    <div className={cn("flex space-x-1 my-1", className)}>
+    <div className={cn("flex space-x-1 md:y-1", className)}>
       <motion.div
         className="overflow-hidden "
         initial={{
