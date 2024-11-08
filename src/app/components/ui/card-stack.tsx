@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import image from "../../../../public/fresh-park-nature-beautiful-backgrounds.jpg";
 
-let interval: any;
+let interval: ReturnType<typeof setInterval>;
 
 type Card = {
   id: number;

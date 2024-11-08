@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 interface CarouselProps {
-  images: string[];
+  images: StaticImageData[];
 }
 
 const Carousel: React.FC<CarouselProps> = ({ images }) => {
