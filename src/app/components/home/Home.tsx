@@ -1,4 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 import Header from "../header/Header";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import {
@@ -8,6 +8,7 @@ import {
   faStar,
   faThumbsUp,
 } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Home() {
   const words1 = [
@@ -17,21 +18,31 @@ export default function Home() {
         "3xl:text-8xl 2xl:text-8xl xl:text-7xl lg:text-8xl md:text-7xl sm:text-5xl xs:text-4xl",
     },
   ];
-  const word2 = [
+  const words2 = [
     {
-      text: "& SECURITY ",
+      text: "& SECURITY",
       className:
         "3xl:text-8xl 2xl:text-8xl xl:text-7xl lg:text-8xl md:text-7xl sm:text-5xl xs:text-4xl",
     },
   ];
-  return (
-    <div
-      className="relative xl:h-screen lg:h-fit xs:h-fit sm:h-fit md:h-fit bg-cover bg-center"
-      style={{ backgroundImage: "url('/wallpaperflare.com_wallpaper.jpg')" }}
-    >
-      <div className="absolute inset-0 bg-black opacity-70 flex items-center "></div>
 
-      <div className="relative xs:h-max sm:h-max  md:h-max lg:h-max xl:h-screen flex flex-col z-10">
+  return (
+    <div className="relative xl:h-screen lg:h-fit xs:h-fit sm:h-fit md:h-fit overflow-hidden">
+      {/* Optimized Background Image */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/wallpaperflare.com_wallpaper.jpg"
+          alt="Background"
+          layout="fill"
+          objectFit="cover"
+          quality={75}
+          priority
+          className="absolute inset-0"
+        />
+        <div className="absolute inset-0 bg-black opacity-70"></div>
+      </div>
+
+      <div className="relative xs:h-max sm:h-max md:h-max lg:h-max xl:h-screen flex flex-col z-10">
         <Header />
 
         <div
@@ -61,7 +72,7 @@ export default function Home() {
               cursorClassName=""
             />
             <TypewriterEffectSmooth
-              words={word2}
+              words={words2}
               className=""
               cursorClassName=""
             />
