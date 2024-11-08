@@ -3,6 +3,9 @@
 import About from "./components/about/About";
 import Footer from "./components/footer/Footer";
 import HomePage from "./components/home/Home";
+import ProjectGalary from "./components/ProjectGalary/ProjectGalary";
+import Services from "./components/services/Services";
+import Testimonial from "./components/testimonials/Testimonial";
 
 export default function Home() {
   return (
@@ -10,13 +13,23 @@ export default function Home() {
       <section id="home">
         <HomePage />
       </section>
-      {/* <section id="about">
+      <section id="about">
         <About />
+      </section>
+      <section id="about">
+        <Services />
+      </section>
+
+      <section id="about">
+        <Testimonial />
+      </section>
+      <section id="about">
+        <ProjectGalary />
       </section>
 
       <section id="contact">
         <Footer />
-      </section> */}
+      </section>
     </div>
   );
 }

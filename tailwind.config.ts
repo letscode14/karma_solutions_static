@@ -23,7 +23,6 @@ const config: Config = {
         },
       },
       screens: {
-        
         xs: "300px",
         sm: "500px",
         md: "700px",
@@ -31,6 +30,10 @@ const config: Config = {
         xl: "1200px",
         "2xl": "1500px",
         "3xl": "1700px",
+      },
+      rotate: {
+        "15": "15deg",
+        "-15": "-15deg",
       },
     },
   },
