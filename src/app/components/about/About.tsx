@@ -6,6 +6,7 @@ import Image from "next/image";
 import gardenCutterImg from "../../../../public/gardener-with-weedwacker-cutting-grass-garden.jpg";
 import repairImage from "../../../../public/man-cutting-grass-with-lawn-mover-back-yard-male-black-apron-guy-repairs.jpg";
 import securityImg from "../../../../public/1718342817.webp";
+import backgroundImg from "../../../../public/fresh-park-nature-beautiful-backgrounds.jpg";
 
 export default function About() {
   const [isVisible, setIsVisible] = useState({
@@ -47,16 +48,20 @@ export default function About() {
   }, []);
 
   return (
-    <div
-      style={{
-        backgroundImage: "url('/fresh-park-nature-beautiful-backgrounds.jpg')",
-      }}
-      className="xl:h-[70%] lg:h-[780px] md:h-[780px] sm:h-[700px] xs:h-[900px] flex justify-end bg-blue-400 relative bg-cover bg-center"
-    >
+    <div className="relative xl:h-[70%] lg:h-[780px] md:h-[780px] sm:h-[700px] xs:h-[900px] flex justify-end bg-blue-400 overflow-hidden">
+      <Image
+        src={backgroundImg}
+        alt="Nature background"
+        layout="fill"
+        objectFit="cover"
+        priority
+        placeholder="blur"
+        className="z-0"
+      />
       <div className="w-[35%] pe-12">
         <div className="w-full mt-3 flex justify-end">
           <Image
-            className="transition opacity duration-700"
+            className="transition opacity duration-700 z-10"
             alt="Gardener with weedwacker"
             src={gardenCutterImg}
             height={200}
@@ -66,7 +71,7 @@ export default function About() {
         </div>
         <div className="w-full mt-3 flex justify-start">
           <Image
-            className="transition-opacity duration-700"
+            className="transition-opacity duration-700 z-10"
             alt="Security Personnel"
             src={securityImg}
             height={200}
@@ -76,7 +81,7 @@ export default function About() {
         </div>
         <div className="w-full mt-3 flex justify-end">
           <Image
-            className="transition-opacity duration-700"
+            className="transition-opacity duration-700  z-10"
             alt="Repairman with lawn mower"
             src={repairImage}
             height={200}
@@ -86,7 +91,7 @@ export default function About() {
         </div>
       </div>
       <div
-        className="absolute inset-0 flex   3xl:px-28 2xl:px-20 xl:px-16 lg:px-16 
+        className="absolute inset-0 flex z-20   3xl:px-28 2xl:px-20 xl:px-16 lg:px-16 
         md:px-12 
         sm:px-4
         xs:px-1"
