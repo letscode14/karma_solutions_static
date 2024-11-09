@@ -6,7 +6,6 @@ import Image from "next/image";
 import gardenCutterImg from "../../../../public/gardener-with-weedwacker-cutting-grass-garden.jpg";
 import repairImage from "../../../../public/man-cutting-grass-with-lawn-mover-back-yard-male-black-apron-guy-repairs.jpg";
 import securityImg from "../../../../public/1718342817.webp";
-import backgroundImg from "../../../../public/fresh-park-nature-beautiful-backgrounds.jpg";
 
 export default function About() {
   const [isVisible, setIsVisible] = useState({
@@ -50,12 +49,11 @@ export default function About() {
   return (
     <div className="relative xl:h-[70%] lg:h-[780px] md:h-[780px] sm:h-[700px] xs:h-[900px] flex justify-end bg-blue-400 overflow-hidden">
       <Image
-        src={backgroundImg}
+        src="https://res.cloudinary.com/dcoy7olo9/image/upload/v1731139074/fresh-park-nature-beautiful-backgrounds_1_vie9yx.jpg"
         alt="Nature background"
         layout="fill"
         objectFit="cover"
         priority
-        placeholder="blur"
         className="z-0"
       />
       <div className="w-[35%] pe-12">
