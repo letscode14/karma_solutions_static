@@ -16,7 +16,10 @@ export default function Home() {
       <section id="about">
         <About />
       </section>
-      <section id="about">
+      <section id="contact">
+        <Footer />
+      </section>
+      {/*<section id="about">
         <Services />
       </section>
 
@@ -27,9 +30,7 @@ export default function Home() {
         <ProjectGalary />
       </section>
 
-      <section id="contact">
-        <Footer />
-      </section>
+      */}
     </div>
   );
 }

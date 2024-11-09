@@ -12,17 +12,23 @@ export default function About() {
     section1: false,
     section2: false,
     section3: false,
+    section4: false,
+    section5: false,
   });
   const sectionRefs = {
     section1: useRef<HTMLDivElement | null>(null),
     section2: useRef<HTMLDivElement | null>(null),
     section3: useRef<HTMLDivElement | null>(null),
+    section4: useRef<HTMLDivElement | null>(null),
+    section5: useRef<HTMLDivElement | null>(null),
   };
 
   useEffect(() => {
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         const sectionName = entry.target.getAttribute("data-section");
+        console.log(sectionName);
+
         if (entry.isIntersecting && sectionName) {
           setIsVisible((prev) => ({ ...prev, [sectionName]: true }));
         }
@@ -45,12 +51,12 @@ export default function About() {
       style={{
         backgroundImage: "url('/fresh-park-nature-beautiful-backgrounds.jpg')",
       }}
-      className="h-[70%] flex justify-end bg-blue-400 relative bg-cover bg-center"
+      className="xl:h-[70%] lg:h-[780px] md:h-[780px] sm:h-[700px] xs:h-[900px] flex justify-end bg-blue-400 relative bg-cover bg-center"
     >
       <div className="w-[35%] pe-12">
         <div className="w-full mt-3 flex justify-end">
           <Image
-            className="transition-opacity duration-700"
+            className="transition opacity duration-700"
             alt="Gardener with weedwacker"
             src={gardenCutterImg}
             height={200}
@@ -80,35 +86,43 @@ export default function About() {
         </div>
       </div>
       <div
-        className="absolute inset-0 flex px-32"
+        className="absolute inset-0 flex   3xl:px-28 2xl:px-20 xl:px-16 lg:px-16 
+        md:px-12 
+        sm:px-4
+        xs:px-1"
         style={{
           background:
             "linear-gradient(to right, rgba(104, 129, 3, 1), rgba(104, 129, 3, 1) 50%, rgba(104, 129, 3, 0.7))",
         }}
       >
-        <div className="z-10 text-white w-full px-6 font-bold grid grid-flow-col justify-stretch">
-          <div className="w-[1px] h-[20%] bg-white relative flex flex-col justify-between items-center">
+        <div className="z-10 text-white w-full px-6 font-bold grid xl:grid-flow-col  justify-stretch">
+          <div className="w-[1px] xl:h-[20%] lg:h-[70%] md:h-[73%] sm:h-[73%] xs:h-[73%] bg-white relative flex flex-col justify-between items-center">
             <div
-              className="flex top-[100%] absolute left-[-24px] w-[700px]"
+              className="flex xl:top-[100%] xs:top-[5%] absolute sm:left-[-24px] xs:left-[-18px]  w-fit "
               data-section="section1"
               ref={sectionRefs.section1}
             >
-              <div className="border w-12 h-12 flex items-center justify-center rounded-full">
-                <FontAwesomeIcon icon={faQuestion} className="text-[22px]" />
+              <div className="border sm:w-12 sm:h-12 xs:h-9 xs:w-9 bg-[#688103] flex items-center justify-center rounded-full">
+                <FontAwesomeIcon
+                  icon={faQuestion}
+                  className="sm:text-[22px] xs:text-[18px]"
+                />
               </div>
               <div
-                className={`ms-4 transition-all duration-1000 ${
+                className={`3xl:w-[600px] 2xl:w-[520px] xl:w-[430px] lg:w-[700px] md:w-[500px] sm:w-[400px] xs:w-[280px] sm:ms-4 xs:ms-2 transition-all duration-1000 ${
                   isVisible.section1
                     ? "translate-y-0 opacity-100"
                     : "translate-y-10 opacity-0"
                 }`}
               >
-                <div className="text-3xl font-light uppercase">Who Are We?</div>
-                <div className="text-3xl uppercase w-[600px]">
+                <div className="3xl:text-3xl 2xl:text-3xl xl:text-2xl lg:text-3xl md:text-2xl sm:text-xl xs:text-lg  font-light uppercase">
+                  Who Are We?
+                </div>
+                <div className="3x:text-3xl 2xl:text-3xl xl:text-2xl lg:text-3xl md:text-2xl sm:text-xl xs:text-lg uppercase ">
                   CRAFTING BEAUTIFUL LANDSCAPES & ENSURING SECURE SPACES - YOUR
                   TRUSTED PARTNER IN PROPERTY MANAGEMENT
                 </div>
-                <div className="opacity-90 mt-1 font-serif w-[600px] text-lg font-light">
+                <div className="opacity-90 mt-1 font-serif   3xl:text-lg 2xl:text-lg xl:text-base lg:text-lg md:text-base sm:text-sm xs:text-sm font-light">
                   At our company, we specialize in creating and maintaining
                   beautiful, secure environments for homes, resorts, and
                   commercial properties. Our landscaping experts transform
@@ -118,30 +132,31 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="w-[1px] h-[60%] bg-white relative flex flex-col justify-between items-center">
             <div
-              className="flex top-[25%] absolute left-[-24px] w-[700px]"
-              data-section="section2"
-              ref={sectionRefs.section2}
+              className="xs:flex xl:hidden  md:top-[56%] md:top-[58%] sm:top-[60%] xs:top-[60%] absolute xs:left-[-18px] w-fit"
+              data-section="section4"
+              ref={sectionRefs.section4}
             >
-              <div className="bg-white border w-12 h-12 flex items-center justify-center rounded-full">
+              <div className="bg-white border sm:w-12 sm:h-12 xs:h-9 xs:w-9 flex items-center justify-center rounded-full">
                 <FontAwesomeIcon
                   icon={faBuilding}
-                  className="text-[22px] text-black"
+                  className="sm:text-[22px] xs:text-[18px] text-black"
                 />
               </div>
               <div
-                className={`ms-4 transition-all duration-1000 ${
-                  isVisible.section2
+                className={`3xl:w-[600px] 2xl:w-[520px] xl:w-[430px] lg:w-[700px] md:w-[500px] sm:w-[400px] xs:w-[280px] sm:ms-4 xs:ms-2 transition-all duration-1000 ${
+                  isVisible.section4
                     ? "translate-y-0 opacity-100"
                     : "translate-y-10 opacity-0"
                 }`}
               >
-                <div className="text-3xl font-light uppercase">Company</div>
-                <div className="text-3xl uppercase w-[600px]">History</div>
-                <div className="opacity-90 mt-1 font-serif w-[600px] text-lg font-light">
+                <div className="3xl:text-3xl 2xl:text-3xl xl:text-2xl lg:text-3xl md:text-2xl sm:text-xl xs:text-lg font-light uppercase">
+                  Company
+                </div>
+                <div className="3xl:text-3xl 2xl:text-3xl xl:text-2xl lg:text-3xl md:text-2xl sm:text-xl xs:text-lg uppercase ">
+                  History
+                </div>
+                <div className="opacity-90 sm:mt-1 xs:mt-0 font-serif  3xl:text-lg 2xl:text-lg xl:text-base lg:text-lg md:text-base sm:text-sm xs:text-sm font-light">
                   With over 35 years of experience, we specialize in
                   constructing gardens, landscaping, and maintenance services.
                   We offer tree cutting, interlocking, and more, transforming
@@ -154,7 +169,79 @@ export default function About() {
             </div>
 
             <div
-              className="flex top-[100%] absolute left-[-24px] w-[700px]"
+              className="xs:flex xl:hidden   top-[100%] absolute sm:left-[-24px] xs:left-[-18px] w-fit"
+              data-section="section5"
+              ref={sectionRefs.section5}
+            >
+              <div className="bg-white border  sm:w-12 sm:h-12 xs:h-9 xs:w-9  flex items-center justify-center rounded-full">
+                <FontAwesomeIcon
+                  icon={faConnectdevelop}
+                  className="sm:text-[22px] xs:text-[18px] text-black"
+                />
+              </div>
+              <div
+                className={`3xl:w-[600px] 2xl:w-[520px] xl:w-[430px] lg:w-[700px] md:w-[500px] sm:w-[400px] xs:w-[280px] sm:ms-4 xs:ms-2 transition-all duration-1000 ${
+                  isVisible.section5
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
+                }`}
+              >
+                <div className="3xl:text-3xl 2xl:text-3xl xl:text-2xl lg:text-3xl md:text-2xl sm:text-xl xs:text-lg uppercase ">
+                  Specialization
+                </div>
+                <div
+                  className="opacity-90 sm:mt-1 xs:mt-0 font-serif  3xl:text-lg 2xl:text-lg md:text-base  xl:text-base lg:text-lg 
+                sm:text-sm xs:text-sm font-light"
+                >
+                  We specialize in constructing beautiful gardens and
+                  landscaping solutions. Our services include expert maintenance
+                  and tree cutting. We also offer interlocking services for
+                  enhanced outdoor appeal. Transform your outdoor space with our
+                  dedicated team!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="w-[1px] h-[60%] lg:hidden md:hidden sm:hidden xs:hidden bg-white relative xl:flex flex-col justify-between items-center">
+            <div
+              className="flex top-[25%] absolute left-[-24px] w-fit"
+              data-section="section2"
+              ref={sectionRefs.section2}
+            >
+              <div className="bg-white border w-12 h-12 flex items-center justify-center rounded-full">
+                <FontAwesomeIcon
+                  icon={faBuilding}
+                  className="text-[22px] text-black"
+                />
+              </div>
+              <div
+                className={`3xl:w-[600px] 2xl:w-[520px] xl:w-[430px] lg:w-[700px] ms-4 transition-all duration-1000 ${
+                  isVisible.section2
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
+                }`}
+              >
+                <div className="3xl:text-3xl 2xl:text-3xl xl:text-2xl font-light uppercase">
+                  Company
+                </div>
+                <div className="3xl:text-3xl 2xl:text-3xl xl:text-2xl uppercase ">
+                  History
+                </div>
+                <div className="opacity-90 mt-1 font-serif  3xl:text-lg 2xl:text-lg xl:text-base font-light">
+                  With over 35 years of experience, we specialize in
+                  constructing gardens, landscaping, and maintenance services.
+                  We offer tree cutting, interlocking, and more, transforming
+                  outdoor spaces with precision. Serving 500+ satisfied
+                  customers across India, our expertise ensures exceptional
+                  results. Trust us to enhance the beauty and functionality of
+                  your environment!
+                </div>
+              </div>
+            </div>
+
+            <div
+              className="flex top-[100%] absolute left-[-24px] w-fit"
               data-section="section3"
               ref={sectionRefs.section3}
             >
@@ -165,16 +252,16 @@ export default function About() {
                 />
               </div>
               <div
-                className={`ms-4 transition-all duration-1000 ${
+                className={`3xl:w-[600px] 2xl:w-[520px] xl:w-[430px] lg:w-[700px] ms-4 transition-all duration-1000 ${
                   isVisible.section3
                     ? "translate-y-0 opacity-100"
                     : "translate-y-10 opacity-0"
                 }`}
               >
-                <div className="text-3xl uppercase w-[600px]">
+                <div className="3xl:text-3xl 2xl:text-3xl xl:text-2xl uppercase ">
                   Specialization
                 </div>
-                <div className="opacity-90 mt-1 font-serif w-[600px] text-lg font-light">
+                <div className="opacity-90 mt-1 font-serif  3xl:text-lg 2xl:text-lg xl:text-base font-light">
                   We specialize in constructing beautiful gardens and
                   landscaping solutions. Our services include expert maintenance
                   and tree cutting. We also offer interlocking services for
