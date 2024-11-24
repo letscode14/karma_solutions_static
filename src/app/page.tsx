@@ -23,12 +23,12 @@ export default function Home() {
       <section>
         <Services2 />
       </section>
-      {/* <section id="about">
+      <section id="about">
         <Testimonial />
       </section>
       <section id="about">
         <ProjectGalary />
-      </section> */}
+      </section>
       <section id="contact">
         <Footer />
       </section>

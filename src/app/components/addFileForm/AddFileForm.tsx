@@ -35,12 +35,13 @@ const AddFileForm: React.FC<AddFileFormProps> = ({ onSubmit }) => {
 
     try {
       // Step 1: Upload the image to Firebase Storage
-      const imageRef = ref(storage, `images/${uuidv4()}_${image.name}`);
+      const imageRef = ref(storage, `/images/${uuidv4()}_${image.name}`);
       await uploadBytes(imageRef, image);
       const imageUrl = await getDownloadURL(imageRef);
+      
 
       // Step 2: Store metadata in Firestore
-      await addDoc(collection(db, "files"), {
+      await addDoc(collection(db, "worksCollections"), {
         title,
         description,
         imageUrl,

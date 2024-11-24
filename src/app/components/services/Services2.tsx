@@ -43,16 +43,16 @@ export default function Services2() {
               safeguard your premises and ensure peace of mind. Our security
               staff undergo rigorous screening and specialized training to
               handle various situations with efficiency and confidence. Whether
-              it's for residential complexes, commercial spaces, or events, our
-              team is equipped to provide unmatched vigilance, maintaining the
-              highest standards of safety and security. With a focus on
+              {"it's"} for residential complexes, commercial spaces, or events,
+              our team is equipped to provide unmatched vigilance, maintaining
+              the highest standards of safety and security. With a focus on
               integrity and customer satisfaction, we ensure your safety is in
               trusted hands.
             </div>
             <div className="mt-3">
               {" "}
-              <div className=" text-lg normal-case w-fit hover:text-white font-normal cursor-pointer text-black  hover:bg-secText hover:px-5 py-1 rounded-full transition-all duration-300">
-                CONTACT US <FontAwesomeIcon icon={faArrowRight} />
+              <div className="uppercase text-lg  w-fit hover:text-white font-normal cursor-pointer text-black  hover:bg-secText hover:px-5 py-1 rounded-full transition-all duration-300">
+                view licensing <FontAwesomeIcon icon={faArrowRight} />
               </div>
             </div>
             <div></div>
