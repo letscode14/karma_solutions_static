@@ -7,7 +7,6 @@ const Page = () => {
     description: string;
     image: File | null;
   }) => {
-    // Handle form submission logic here
     console.log("Form submitted:", formData);
   };
 

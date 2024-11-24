@@ -35,12 +35,12 @@ export default function Services() {
   }, []);
 
   return (
-    <div className="relative h-[650px] flex justify-center">
+    <div className="relative lg:h-[650px] md:h-[930px] xs:h-[1810px] z-20 flex justify-center">
       <div
         ref={sectionRef}
         className={`${
           isVisible ? "gap-0 opacity-100" : "gap-24 opacity-0"
-        } grid absolute top-[-30px] grid-cols-3 shadow-xl max-w-7xl transition-all duration-1000 ease-in-out`}
+        } grid absolute top-[-30px] lg:grid-cols-3 md:grid-cols-2 shadow-xl max-w-7xl transition-all duration-1000 ease-in-out`}
       >
         <div
           className={`bg-white h-[300px] p-8 flex flex-col items-center justify-center text-center shadow-md transform ${
@@ -134,11 +134,12 @@ export default function Services() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
           } transition-all duration-1000 ease-in-out`}
         >
-          <h3 className="text-xl font-semibold mb-2">Security Personnel</h3>
+          <h3 className="text-2xl font-semibold mb-2 z-10">Best in Quality</h3>
           <p>
-            Provide professional security services, offering trained personnel
-            to ensure safety and protection for residential, commercial, and
-            event settings.
+            we pride ourselves on delivering the highest quality services to
+            meet and exceed your expectations. With over 20 years of experience,
+            we specialize in landscaping and security solutions tailored to your
+            unique needs
           </p>
         </div>
 

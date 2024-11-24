@@ -5,6 +5,7 @@ import Footer from "./components/footer/Footer";
 import HomePage from "./components/home/Home";
 import ProjectGalary from "./components/ProjectGalary/ProjectGalary";
 import Services from "./components/services/Services";
+import Services2 from "./components/services/Services2";
 import Testimonial from "./components/testimonials/Testimonial";
 
 export default function Home() {
@@ -16,21 +17,21 @@ export default function Home() {
       <section id="about">
         <About />
       </section>
-      <section id="contact">
-        <Footer />
-      </section>
-      {/*<section id="about">
+      <section id="services">
         <Services />
       </section>
-
-      <section id="about">
+      <section>
+        <Services2 />
+      </section>
+      {/* <section id="about">
         <Testimonial />
       </section>
       <section id="about">
         <ProjectGalary />
+      </section> */}
+      <section id="contact">
+        <Footer />
       </section>
-
-      */}
     </div>
   );
 }

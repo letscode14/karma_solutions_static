@@ -6,3 +6,24 @@ html {
   scrollbar-width: none;
   overflow-x: hidden;
 }
+@keyframes rotateWord {
+  0% {
+    transform: rotateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0);
+    opacity: 1;
+  }
+}
+
+.rotate-word {
+  display: inline-block;
+  animation: rotateWord 2s infinite;
+  transform-origin: center bottom;
+  transition: all 0.5s ease-in-out;
+}

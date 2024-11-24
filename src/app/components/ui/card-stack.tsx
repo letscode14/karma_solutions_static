@@ -34,35 +34,40 @@ export const CardStack = ({
   const startFlipping = () => {
     interval = setInterval(() => {
       setCards((prevCards: Card[]) => {
-        const newArray = [...prevCards]; // create a copy of the array
-        newArray.unshift(newArray.pop()!); // move the last element to the front
+        const newArray = [...prevCards];
+        newArray.unshift(newArray.pop()!); 
         return newArray;
       });
     }, 5000);
   };
 
   return (
-    <div className="relative h-full">
+    <div className="relative h-full ">
       {cards.map((card, index) => {
         return (
           <motion.div
             key={card.id}
-            className="absolute    bg-white h-full  rounded-3xl  shadow-xl flex flex-col justify-between"
+            className="absolute  bg-white    h-full  rounded-3xl  shadow-xl flex flex-col justify-between"
             style={{
               transformOrigin: "top center",
             }}
             animate={{
               top: index * -10,
-              scale: 1 - index * SCALE_FACTOR, // decrease scale for cards that are behind
-              zIndex: cards.length - index, //  decrease z-index for the cards that are behind
+              scale: 1 - index * SCALE_FACTOR, 
+              zIndex: cards.length - index, 
             }}
           >
             <div className="">
-              <Image className="h-[70%] rounded-3xl" alt="" src={image} />
+              <Image
+                className=" xs:h-[80%] 3xl:h-[70%] sm:h-[70%] lg:h-full rounded-3xl"
+                alt=""
+                src={image}
+              />
             </div>
             <div>
-              <p className="text-neutral-500 font-medium dark:text-white">
+              <p className="text-neutral-500  font-medium dark:text-white">
                 {card.name}
+                sdf
               </p>
               <p className="text-neutral-400 font-normal dark:text-neutral-200">
                 {/* {card.designation} */}

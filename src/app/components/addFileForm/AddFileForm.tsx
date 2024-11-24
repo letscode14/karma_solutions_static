@@ -1,6 +1,10 @@
 "use client";
 import { useState, ChangeEvent, FormEvent } from "react";
 import Image from "next/image";
+import { v4 as uuidv4 } from "uuid";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { db, storage } from "../../../../firebase/firebase-config";
+import { addDoc, collection } from "firebase/firestore";
 
 interface AddFileFormProps {
   onSubmit: (formData: {
@@ -22,9 +26,39 @@ const AddFileForm: React.FC<AddFileFormProps> = ({ onSubmit }) => {
     setPreview(file ? URL.createObjectURL(file) : null);
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    onSubmit({ title, description, image });
+    if (!image) {
+      alert("Please select an image");
+      return;
+    }
+
+    try {
+      // Step 1: Upload the image to Firebase Storage
+      const imageRef = ref(storage, `images/${uuidv4()}_${image.name}`);
+      await uploadBytes(imageRef, image);
+      const imageUrl = await getDownloadURL(imageRef);
+
+      // Step 2: Store metadata in Firestore
+      await addDoc(collection(db, "files"), {
+        title,
+        description,
+        imageUrl,
+        createdAt: new Date(),
+      });
+
+      // Call the onSubmit prop with the form data if needed
+
+      setTitle("");
+      setDescription("");
+      setImage(null);
+      setPreview(null);
+
+      alert("File added successfully!");
+      onSubmit({ title, description, image });
+    } catch (error) {
+      console.error("Error uploading file:", error);
+    }
   };
 
   return (
@@ -47,6 +81,8 @@ const AddFileForm: React.FC<AddFileFormProps> = ({ onSubmit }) => {
           <Image
             src={preview}
             alt="Preview"
+            width={80}
+            height={80}
             className="mt-4 w-full h-48 object-cover rounded-lg"
           />
         )}

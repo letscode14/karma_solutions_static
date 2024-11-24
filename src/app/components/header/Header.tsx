@@ -22,10 +22,16 @@ export default function Header() {
         >
           HOME
         </div>
-        <div className=" cursor-pointer hover:bg-secText  px-5 py-1 rounded-full transition-all duration-300">
+        <div
+          onClick={() => (location.href = "#about")}
+          className=" cursor-pointer hover:bg-secText  px-5 py-1 rounded-full transition-all duration-300"
+        >
           ABOUT US
         </div>
-        <div className=" cursor-pointer hover:bg-secText  px-5 py-1 rounded-full transition-all duration-300">
+        <div
+          onClick={() => (location.href = "#services")}
+          className=" cursor-pointer hover:bg-secText  px-5 py-1 rounded-full transition-all duration-300"
+        >
           SERVICES
         </div>
         <div className=" cursor-pointer hover:bg-secText px-5 py-1 rounded-full transition-all duration-300">
