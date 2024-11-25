@@ -36,11 +36,11 @@ export default function ProjectGalary() {
         <Carousel images={images} />
         <div className="text-white xl:w-[70%] 2xl:w-[60%] lg:w-full xl:mb-0 xs:pb-5 pt-6">
           <div className=" text-white text-4xl ">
-            Our Landscaping Creations: Beauty in Every Detail
+            Our Landscaping Creations Beauty in Every Detail
           </div>
           <div className="mt-3 text-lg tracking-wider">
             Our team of expert landscapers combines creativity with precision to
-            design landscapes that reflect your vision, whether it's for a
+            design landscapes that reflect your vision, whether its for a
             residential garden, a resort, or a commercial space. With a keen eye
             for detail and a passion for nature, we provide innovative
             landscaping solutions that include garden design, tree trimming,
