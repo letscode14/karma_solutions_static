@@ -1,12 +1,42 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image, { StaticImageData } from "next/image";
+import { collection, getDocs, limit, query } from "firebase/firestore";
+import { db } from "../../../../firebase/firebase-config";
 
 interface CarouselProps {
   images: StaticImageData[];
 }
 
-const Carousel: React.FC<CarouselProps> = ({ images }) => {
+const Carousel: React.FC<CarouselProps> = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [images, setImages] = useState<string[]>([]);
+
+  const fetchImages = async () => {
+    try {
+      const q = query(collection(db, "karmaWorks"), limit(15));
+
+      const querySnapshot = await getDocs(q);
+      const fetchedImages: string[] = [];
+
+      querySnapshot.forEach((doc) => {
+        console.log(doc.data().url);
+
+        const imageUrl = doc.data().url;
+        if (imageUrl) {
+          fetchedImages.push(imageUrl);
+        }
+      });
+
+      // Limit to 8 images
+      setImages(fetchedImages.slice(0, 8));
+    } catch (error) {
+      console.error("Error fetching images:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchImages();
+  }, []);
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
@@ -21,16 +51,9 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
   };
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto overflow-hidden  from-green-700 to-green-600 p-6 rounded-lg  ">
-      <h2 className="text-center text-white font-bold text-lg mb-4">
-        PROJECT GALLERY
-      </h2>
-      <p className="text-center text-white italic mb-6">
-        {"Exceptional Craftsmanship"}
-      </p>
-
+    <div className="relative w-full max-w-6xl h-auto  overflow-hidden  from-green-700 to-green-600 lg:p-6  xs:mt-4 rounded-lg  ">
       {/* Carousel Images */}
-      <div className="relative flex items-center justify-center h-80">
+      <div className="relative flex items-center justify-center xl:h-full md:h-[340px] xs:h-[300px] 2xl:h-[500px]">
         {images.map((image, index) => {
           const isActive = index === currentIndex;
           const isNext = index === (currentIndex + 1) % images.length;
@@ -85,10 +108,10 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
 
       {/* Dots Navigation */}
       <div className="flex justify-center mt-6 space-x-2">
-        {images.map((_, index) => (
+        {images.slice(0, 3).map((_, index) => (
           <button
             key={index}
-            className={`w-3 h-3 rounded-full ${
+            className={`lg:w-3 lg:h-3 xs:w-2 xs:h-2 rounded-full ${
               index === currentIndex ? "bg-white" : "bg-gray-400"
             }`}
             onClick={() => setCurrentIndex(index)}

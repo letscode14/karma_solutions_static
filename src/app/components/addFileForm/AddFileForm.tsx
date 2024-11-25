@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { db, storage } from "../../../../firebase/firebase-config";
 import { addDoc, collection } from "firebase/firestore";
+import { Loading2 } from "../loading/Loading";
 
 interface AddFileFormProps {
   onSubmit: (formData: {
@@ -19,6 +20,7 @@ const AddFileForm: React.FC<AddFileFormProps> = ({ onSubmit }) => {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
@@ -27,6 +29,7 @@ const AddFileForm: React.FC<AddFileFormProps> = ({ onSubmit }) => {
   };
 
   const handleSubmit = async (e: FormEvent) => {
+    setLoading(true);
     e.preventDefault();
     if (!image) {
       alert("Please select an image");
@@ -38,7 +41,6 @@ const AddFileForm: React.FC<AddFileFormProps> = ({ onSubmit }) => {
       const imageRef = ref(storage, `/images/${uuidv4()}_${image.name}`);
       await uploadBytes(imageRef, image);
       const imageUrl = await getDownloadURL(imageRef);
-      
 
       // Step 2: Store metadata in Firestore
       await addDoc(collection(db, "worksCollections"), {
@@ -56,8 +58,12 @@ const AddFileForm: React.FC<AddFileFormProps> = ({ onSubmit }) => {
       setPreview(null);
 
       alert("File added successfully!");
+      setLoading(false);
+
       onSubmit({ title, description, image });
     } catch (error) {
+      setLoading(false);
+
       console.error("Error uploading file:", error);
     }
   };
@@ -120,9 +126,9 @@ const AddFileForm: React.FC<AddFileFormProps> = ({ onSubmit }) => {
       {/* Submit Button */}
       <button
         type="submit"
-        className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-200"
+        className="w-full py-2 h-9 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-200"
       >
-        Add File
+        {loading ? <Loading2 /> : "Add File"}
       </button>
     </form>
   );

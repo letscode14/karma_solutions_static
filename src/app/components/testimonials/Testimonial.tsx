@@ -16,15 +16,15 @@ export default function Testimonial() {
         sm:px-8 
         xs:px-4  w-full"
     >
-      <div className="border mt-4 mb-2 border-black  border-[1px] opacity-50      "></div>
-      <div className="w-full tracking-wide text-center 3xl:text-2xl font-semibold">
+      <div className="border  mb-2 border-black  border-[1px] opacity-50      "></div>
+      <div className="w-full tracking-wide text-center 3xl:text-3xl font-semibold">
         OUR EXPERTISE IN ACTION
       </div>
       <div className="text-center 3xl:text-base font-serif">
         {`"We are the best"`}
       </div>
-      <div className="w-full lg:flex mt-7 xs:mt-3">
-        <div className="3xl:w-[60%] lg:w-[60%] xs:w-full pt-12 3xl:px-20  md:px-12 lg:px-6 3xl:pb-20  lg:pb-20">
+      <div className="w-full lg:flex mt-7 lg:pt-7 xs:mt-3">
+        <div className="3xl:w-[60%] lg:w-[60%] xs:w-full xs:pt-7 3xl:px-20  md:px-12 lg:px-6 3xl:pb-20  lg:pb-20">
           <CardStackDemo />
         </div>
 
@@ -52,13 +52,13 @@ export default function Testimonial() {
               <div className="uppercase xs:text-xl sm:text-2xl font-semibold text-secText">
                 connect us
               </div>
-              <div className="text-white xs:text-xl sm:text-2xl mt-2">
+              <div className="text-white xs:text-xl sm:text-2xl mt-2 md:text-xl xl:text-2xl">
                 +91 95674-17334
               </div>
-              <div className="text-white xs:text-xl sm:text-2xl">
+              <div className="text-white xs:text-xl sm:text-2xl md:text-xl xl:text-2xl">
                 +91 99615-89022
               </div>
-              <div className="text-white xs:text-xl sm:text-2xl">
+              <div className="text-white xs:text-xl sm:text-2xl md:text-xl xl:text-2xl">
                 karmaflower6644@gmail.com
               </div>
               <div className="max-w-[300px] mt-5  items-center text-secText text-[26px] flex">

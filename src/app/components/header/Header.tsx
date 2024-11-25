@@ -34,7 +34,10 @@ export default function Header() {
         >
           SERVICES
         </div>
-        <div className=" cursor-pointer hover:bg-secText px-5 py-1 rounded-full transition-all duration-300">
+        <div
+          onClick={() => (location.href = "#contact")}
+          className=" cursor-pointer hover:bg-secText px-5 py-1 rounded-full transition-all duration-300"
+        >
           CONTACT US
         </div>
       </div>

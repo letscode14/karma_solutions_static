@@ -1,73 +1,51 @@
 "use client";
+import { useEffect, useState } from "react";
+import {
+  collection,
+  getDocs,
+  limit,
+  query,
+  DocumentData,
+} from "firebase/firestore";
+import { db } from "../../../../firebase/firebase-config";
 import { CardStack } from "../ui/card-stack";
-import { cn } from "@/lib/utils";
-export function CardStackDemo() {
-  return (
-    <div
-      className="
-      
-      shadow-xl 
-      rounded-3xl
-      3xl:h-full 
-      lg:h-full
 
-      xs:h-[400px]
-      sm:h-[450px]
-    "
-    >
-      <CardStack items={CARDS} />
+export function CardStackDemo() {
+  const [cards, setCardData] = useState<DocumentData[]>([]);
+
+  // Function to fetch images/data from Firebase Firestore
+  const fetchImages = async () => {
+    try {
+      const q = query(collection(db, "worksCollections"), limit(8));
+      const querySnapshot = await getDocs(q);
+
+      const fetchedCards: DocumentData[] = [];
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        fetchedCards.push(data);
+      });
+
+      // Set the fetched data to state
+      setCardData(fetchedCards);
+    } catch (error) {
+      console.error("Error fetching images:", error);
+    }
+  };
+
+  // Fetch images when the component mounts
+  useEffect(() => {
+    fetchImages();
+  }, []);
+
+  // Log the updated cards state after it's fetched
+  useEffect(() => {
+    console.log(cards, "Cards updated after fetch");
+  }, [cards]);
+
+  return (
+    <div className="shadow-xl rounded-3xl 3xl:h-full lg:h-[80%] xl:h-full xs:h-[400px] sm:h-[450px]">
+      {/* Pass the cards data to CardStack component */}
+      <CardStack items={cards} />
     </div>
   );
 }
-
-// Small utility to highlight the content of specific section of a testimonial content
-export const Highlight = ({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => {
-  return <span className={cn("text-black", className)}>{children}</span>;
-};
-
-const CARDS = [
-  {
-    id: 0,
-    name: "Manu Arora",
-    designation: "Senior Software Engineer",
-    content: (
-      <p>
-        These cards are amazing, <Highlight>I want to use them</Highlight> in my
-        project. Framer motion is a godsend ngl tbh fam 🙏
-      </p>
-    ),
-  },
-  {
-    id: 1,
-    name: "Elon Musk",
-    designation: "Senior Shitposter",
-    content: (
-      <p>
-        I dont like this Twitter thing,{" "}
-        <Highlight>deleting it right away</Highlight> because yolo. Instead, I
-        would like to call it <Highlight>X.com</Highlight> so that it can easily
-        be confused with adult sites.
-      </p>
-    ),
-  },
-  {
-    id: 2,
-    name: "Tyler Durden",
-    designation: "Manager Project Mayhem",
-    content: (
-      <p>
-        The first rule of
-        <Highlight>Fight Club</Highlight> is that you do not talk about fight
-        club. The second rule of
-        <Highlight>Fight club</Highlight> is that you DO NOT TALK about fight
-        club.
-      </p>
-    ),
-  },
-];

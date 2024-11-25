@@ -98,6 +98,7 @@ export default function Home() {
             </div>
             <div className="flex mt-4 flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4">
               <button
+                onClick={() => (location.href = "#works")}
                 className="md:w-40 sm:w-36 xs:w-32 xs:h-9 font-semibold 
               duration-300 hover:bg-secText hover:border-0 md:h-12 sm:h-10 rounded-full 
               text-white text-black transition-all

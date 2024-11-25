@@ -49,7 +49,7 @@ export default function Services2() {
               integrity and customer satisfaction, we ensure your safety is in
               trusted hands.
             </div>
-            <div className="mt-3">
+            <div className="mt-3 xs:mb-6 lg:mb-0">
               {" "}
               <div className="uppercase text-lg  w-fit hover:text-white font-normal cursor-pointer text-black  hover:bg-secText hover:px-5 py-1 rounded-full transition-all duration-300">
                 view licensing <FontAwesomeIcon icon={faArrowRight} />
