@@ -73,7 +73,7 @@ export default function Testimonial() {
                 <FontAwesomeIcon
                   onClick={() =>
                     (location.href =
-                      "https://www.instagram.com/flowergarden__/profilecard/?igsh=MThkNTlqbXVjdWIxMg==")
+                      "https://www.instagram.com/flowergarden______/profilecard/?igsh=Mm01aXZyaW5hdWVr")
                   }
                   className=" me-3 hover:text-white transition-all duration-200"
                   icon={faInstagram}

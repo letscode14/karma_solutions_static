@@ -162,7 +162,7 @@ export default function Footer() {
                 icon={faInstagram}
                 onClick={() =>
                   (location.href =
-                    "https://www.instagram.com/flowergarden__/profilecard/?igsh=MThkNTlqbXVjdWIxMg==")
+                    "https://www.instagram.com/flowergarden______/profilecard/?igsh=Mm01aXZyaW5hdWVr")
                 }
               />{" "}
               <FontAwesomeIcon
