@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import securityImage from "../../../../public/security_image.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { useMenu } from "@/app/context/MenuContext";
+import { useRouter } from "next/navigation";
 
 export default function Services2() {
   const [index, setIndex] = useState(0);
@@ -15,6 +17,8 @@ export default function Services2() {
     }, 2000);
     return () => clearInterval(interval);
   }, []);
+  const { setImageUrl } = useMenu();
+  const router = useRouter();
   return (
     <div
       className="3xl:px-28 2xl:px-20 xl:px-16 lg:px-10 lg:block 
@@ -51,7 +55,15 @@ export default function Services2() {
             </div>
             <div className="mt-3 xs:mb-6 lg:mb-0">
               {" "}
-              <div className="uppercase text-lg  w-fit hover:text-white font-normal cursor-pointer text-black  hover:bg-secText hover:px-5 py-1 rounded-full transition-all duration-300">
+              <div
+                onClick={() => {
+                  router.push("/viewimage");
+                  setImageUrl(
+                    "https://res.cloudinary.com/dcoy7olo9/image/upload/v1732632412/WhatsApp_Image_2024-11-26_at_20.12.18_b34151eb_aulwpc.jpg"
+                  );
+                }}
+                className="uppercase text-lg  w-fit hover:text-white font-normal cursor-pointer text-black  hover:bg-secText hover:px-5 py-1 rounded-full transition-all duration-300"
+              >
                 view licensing <FontAwesomeIcon icon={faArrowRight} />
               </div>
             </div>

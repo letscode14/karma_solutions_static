@@ -63,10 +63,18 @@ export default function Testimonial() {
               </div>
               <div className="max-w-[300px] mt-5  items-center text-secText text-[26px] flex">
                 <FontAwesomeIcon
+                  onClick={() =>
+                    (location.href =
+                      "https://www.facebook.com/share/1B2TVmFRKr/")
+                  }
                   className=" me-3 hover:text-white  transition-all duration-200"
                   icon={faFacebook}
                 />{" "}
                 <FontAwesomeIcon
+                  onClick={() =>
+                    (location.href =
+                      "https://www.instagram.com/flowergarden__/profilecard/?igsh=MThkNTlqbXVjdWIxMg==")
+                  }
                   className=" me-3 hover:text-white transition-all duration-200"
                   icon={faInstagram}
                 />{" "}
@@ -75,6 +83,7 @@ export default function Testimonial() {
                   icon={faTwitter}
                 />{" "}
                 <FontAwesomeIcon
+                  onClick={() => (location.href = "https://wa.me/919567417334")}
                   className=" me-3 hover:text-white transition-all duration-200"
                   icon={faWhatsapp}
                 />

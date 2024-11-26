@@ -4,9 +4,13 @@ import { Loading2 } from "../loading/Loading";
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../../../firebase/firebase-config";
+import { useMenu } from "@/app/context/MenuContext";
+import { useRouter } from "next/navigation";
 
 const ImageGallery = () => {
   const [images, setImages] = useState<string[]>([]);
+  const { setImageUrl } = useMenu();
+  const router = useRouter();
 
   const fetchImages = async () => {
     try {
@@ -43,6 +47,10 @@ const ImageGallery = () => {
             >
               <div className="relative w-full pb-[75%] md:pb-[56.25%] lg:pb-[66.66%]">
                 <Image
+                  onClick={() => {
+                    setImageUrl(image);
+                    router.push("/viewimage");
+                  }}
                   src={image}
                   alt={`Image ${index + 1}`}
                   layout="fill" // Use layout="fill" to make the image responsive and cover the area

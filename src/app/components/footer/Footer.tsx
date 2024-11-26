@@ -1,9 +1,10 @@
-import React from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import Image from "next/image";
 import logo from "../../../../public/11zon_cropped.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
+  faL,
   faLocationDot,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
@@ -13,8 +14,88 @@ import {
   faTwitter,
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
+interface FormData {
+  name: string;
+  contact: string;
+  email: string;
+  message: string;
+}
 
 export default function Footer() {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    contact: "",
+    email: "",
+    message: "",
+  });
+
+  const [error, setError] = useState({
+    email: false,
+    contact: false,
+  });
+
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validateContact = (contact: string): boolean => {
+    const contactRegex = /^\d{10}$/;
+    return contactRegex.test(contact);
+  };
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ): void => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e: FormEvent): Promise<void> => {
+    e.preventDefault();
+
+    // Validate email and contact
+    const isEmailValid = validateEmail(formData.email);
+    const isContactValid = validateContact(formData.contact);
+
+    if (!isEmailValid || !isContactValid) {
+      setError({
+        email: !isEmailValid,
+        contact: !isContactValid,
+      });
+      return;
+    }
+
+    // Set Name and Message as null if not provided
+    const dataToSend = {
+      name: formData.name || null,
+      contact: formData.contact,
+      email: formData.email,
+      message: formData.message || null,
+    };
+
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbwCZiLwU-7FJGoB5VewJz_jAYTUpaseSwCGyG0XPGB2Yochzj4j5w2AFLQ6AuoESkDvbA/exec",
+      {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dataToSend),
+      }
+    );
+    if (response) {
+      setError({ email: false, contact: false });
+      setFormData({
+        name: "",
+        contact: "",
+        email: "",
+        message: "",
+      });
+      alert("form submitted successfully");
+    }
+  };
   return (
     <div className="bg-footer h-fit 2xl:px-28 xl:px-20 lg:px-10  sm:py-12 xs:py-7 md:px-20 sm:px-12 xs:px-4">
       <div className=" lg:flex justify-between ">
@@ -72,117 +153,138 @@ export default function Footer() {
               <FontAwesomeIcon
                 className=" me-3 hover:text-white  transition-all duration-200"
                 icon={faFacebook}
+                onClick={() =>
+                  (location.href = "https://www.facebook.com/share/1B2TVmFRKr/")
+                }
               />{" "}
               <FontAwesomeIcon
                 className=" me-3 hover:text-white transition-all duration-200"
                 icon={faInstagram}
+                onClick={() =>
+                  (location.href =
+                    "https://www.instagram.com/flowergarden__/profilecard/?igsh=MThkNTlqbXVjdWIxMg==")
+                }
               />{" "}
               <FontAwesomeIcon
                 className=" me-3 hover:text-white transition-all duration-200"
                 icon={faTwitter}
               />{" "}
               <FontAwesomeIcon
+                onClick={() => (location.href = "https://wa.me/919567417334")}
                 className=" me-3 hover:text-white transition-all duration-200"
                 icon={faWhatsapp}
               />
             </div>
           </div>
         </div>
-
-        <div
-          className="2xl:w-[400px] xl:w-[350px] lg:w-[300px] 
-        md:mt-10 md:w-full 
-      lg:mt-0 
-        sm:mt-8 xs:mt-8"
-        >
+        <div className="2xl:w-[400px] xl:w-[350px] lg:w-[300px] md:mt-10 md:w-full lg:mt-0 sm:mt-8 xs:mt-8">
           <div className="font-bold text-xl text-white">
             GET IN <span className="text-thirdText ">TOUCH WITH US</span>
           </div>
-          <div className="text-white mt-2 ">
-            <div className=" mt-1 ">
-              <label
-                htmlFor="username"
-                className="block text-sm font-medium leading-6"
-              >
-                Name
-              </label>
-              <div className="mt-2 ">
-                <div className="flex rounded-md bg-gray-300 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 w-full">
+          <div className="text-white mt-2">
+            <form onSubmit={handleSubmit}>
+              {/* Name */}
+              <div className="mt-1">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium leading-6"
+                >
+                  Name
+                </label>
+                <div className="mt-2">
                   <input
-                    id="username"
-                    name="username"
+                    id="name"
+                    name="name"
                     type="text"
-                    autoComplete="username"
-                    className="block rounded-md  flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="block w-full rounded-md bg-gray-300 py-1.5 pl-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
-            </div>{" "}
-            <div className="sm:col-span-4 mt-1">
-              <label
-                htmlFor="username"
-                className="block text-sm font-medium leading-6"
-              >
-                Contact
-              </label>
-              <div className="mt-2">
-                <div className="flex bg-gray-300 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 w-full">
+
+              {/* Contact */}
+              <div className="mt-1">
+                <label
+                  htmlFor="contact"
+                  className="block text-sm font-medium leading-6"
+                >
+                  Contact
+                </label>
+                <div className="mt-2">
                   <input
-                    id="username"
-                    name="username"
+                    id="contact"
+                    name="contact"
                     type="text"
-                    autoComplete="username"
-                    className="block rounded-md bg-gray-300 flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    value={formData.contact}
+                    onChange={handleChange}
+                    className="block w-full rounded-md bg-gray-300 py-1.5 pl-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                  />
+                  {error.contact && (
+                    <p className="text-red-500 text-sm">
+                      Invalid contact number
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="mt-1">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium leading-6"
+                >
+                  Email
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="block w-full rounded-md bg-gray-300 py-1.5 pl-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                  />
+                  {error.email && (
+                    <p className="text-red-500 text-sm">Invalid email</p>
+                  )}
+                </div>
+              </div>
+
+              {/* Message */}
+              <div className="mt-1">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium leading-6"
+                >
+                  Message
+                </label>
+                <div className="mt-2">
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={4}
+                    className="block w-full rounded-md bg-gray-300 py-1.5 pl-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
-            </div>
-            <div className="sm:col-span-4 mt-1">
-              <label
-                htmlFor="username"
-                className="block text-sm font-medium leading-6"
-              >
-                Email
-              </label>
-              <div className="mt-2">
-                <div className="flex bg-gray-300 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 w-full">
-                  <input
-                    id="username"
-                    name="username"
-                    type="text"
-                    autoComplete="username"
-                    className="block rounded-md bg-gray-300 flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                  />
-                </div>
+
+              {/* Submit Button */}
+              <div className="mt-4">
+                <button
+                  type="submit"
+                  className="bg-secText text-sm px-3 py-1 font-semibold min-w-28 rounded-full"
+                >
+                  SEND
+                </button>
               </div>
-            </div>
-            <div className="sm:col-span-4 mt-1">
-              <label
-                htmlFor="username"
-                className="block text-sm font-medium leading-6"
-              >
-                Message
-              </label>
-              <div className="mt-2">
-                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 w-full">
-                  <input
-                    id="username"
-                    name="username"
-                    type="text"
-                    autoComplete="username"
-                    className="block h-24 flex-1 border-0 rounded-md bg-gray-300  py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="mt-4 x">
-              <button className="bg-secText text-sm px-3 py-1  font-semibold min-w-28 rounded-full">
-                SEND
-              </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
+
       <div className="flex flex-col items-center   mt-6 mb-2">
         <div>
           {" "}

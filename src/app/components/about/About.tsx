@@ -135,7 +135,7 @@ export default function About() {
                 CRAFTING BEAUTIFUL LANDSCAPES & ENSURING SECURE SPACES - YOUR
                 TRUSTED PARTNER IN PROPERTY MANAGEMENT
               </div>
-              <div className="opacity-90 mt-1 font-serif   3xl:text-lg 2xl:text-lg xl:text-base lg:text-lg md:text-base sm:text-sm xs:text-sm font-light">
+              <div className="opacity-90 mt-1   font-serif 3xl:text-lg 2xl:text-lg xl:text-base lg:text-lg md:text-base sm:text-sm xs:text-sm font-light">
                 At our company, we specialize in creating and maintaining
                 beautiful, secure environments for homes, resorts, and
                 commercial properties. Our landscaping experts transform outdoor
