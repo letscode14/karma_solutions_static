@@ -15,7 +15,9 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Karma Solutions",
+  title: "Professional Landscaping Services | Security Service & Garden Design",
+  description:
+    "Expert landscaping and security services in Kerala. Contact us for garden design, lawn care, and 24/7 security solutions.",
   icons: {
     icon: "/favicon.ico",
   },
@@ -28,14 +30,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <link rel="icon" href="favicon.ico"></link>
-      <MenuProvider>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          {children}
-        </body>
-      </MenuProvider>
+      <head>
+        <title>
+          Professional Landscaping Services | Security Service & Garden Design
+        </title>
+        <meta
+          name="description"
+          content="Expert landscaping and security services in Kerala. Contact us for garden design, lawn care, and 24/7 security solutions."
+        />
+        <link rel="icon" href="favicon.ico" />
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <MenuProvider>{children}</MenuProvider>
+      </body>
     </html>
   );
 }
