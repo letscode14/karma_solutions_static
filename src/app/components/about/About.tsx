@@ -246,13 +246,13 @@ export default function About() {
                   CRAFTING BEAUTIFUL LANDSCAPES & ENSURING SECURE SPACES - YOUR
                   TRUSTED PARTNER IN PROPERTY MANAGEMENT
                 </div>
-                <div className="opacity-90 mt-1 font-serif   3xl:text-lg 2xl:text-lg xl:text-base lg:text-lg md:text-base sm:text-sm xs:text-sm font-light">
-                  At our company, we specialize in creating and maintaining
-                  beautiful, secure environments for homes, resorts, and
-                  commercial properties. Our landscaping experts transform
-                  outdoor areas into vibrant and inviting landscapes, offering
-                  services such as garden design, tree trimming, lawn
-                  maintenance, and sustainable planting solutions.
+                <div className="opacity-90 mt-1 font-serif 3xl:text-lg 2xl:text-lg xl:text-base lg:text-lg md:text-base sm:text-sm xs:text-sm font-light">
+                  At Karma Solutions, we specialize in landscaping works and
+                  security services to create and maintain safe, beautiful
+                  environments for homes, resorts, and commercial properties.
+                  Our services include expert garden maintenance, tree trimming,
+                  lawn care, irrigation repair, and comprehensive security
+                  solutions tailored to your needs.
                 </div>
               </div>
             </div>
