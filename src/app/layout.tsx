@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Professional Landscaping Services | Security Service & Garden Design",
+  title: "Landscaping Services | Security Service & Garden Design",
   description:
     "Expert landscaping and security services in Kerala. Contact us for garden design, lawn care, and 24/7 security solutions.",
   icons: {
@@ -32,11 +32,11 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>
-          Professional Landscaping Services | Security Service & Garden Design
+           Landscaping Services | Security Service & Garden Design
         </title>
         <meta
           name="description"
-          content="Expert landscaping and security services in Kerala. Contact us for garden design, lawn care, and 24/7 security solutions."
+          content="landscaping and security services in Kerala. Contact us for garden design, lawn care, and 24/7 security solutions."
         />
         <link rel="icon" href="favicon.ico" />
       </head>

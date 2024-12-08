@@ -354,7 +354,7 @@ export default function About() {
                 </div>
                 <div className="opacity-90 mt-1 font-serif  3xl:text-lg 2xl:text-lg xl:text-base font-light">
                   With over 35 years of experience, we specialize in
-                  constructing gardens, landscaping, and maintenance services.
+                  Constructing Gardens, Landscaping, and maintenance services.
                   We offer tree cutting, interlocking, and more, transforming
                   outdoor spaces with precision. Serving 500+ satisfied
                   customers across India, our expertise ensures exceptional
@@ -387,7 +387,7 @@ export default function About() {
                 </div>
                 <div className="opacity-90 mt-1 font-serif  3xl:text-lg 2xl:text-lg xl:text-base font-light">
                   We specialize in constructing beautiful gardens and
-                  landscaping solutions. Our services include expert maintenance
+                  Landscaping solutions. Our services include expert maintenance
                   and tree cutting. We also offer interlocking services for
                   enhanced outdoor appeal. Transform your outdoor space with our
                   dedicated team!
