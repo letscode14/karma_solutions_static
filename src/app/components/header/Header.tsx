@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <div className=" text-white xs:px-3 sm:px-6 md:px-10 lg:px-12 3xl:px-28 2xl:px-20 xl:px-16 flex justify-between items-center sm:h-24 xs:h-20 bg-transparent">
       <div className="flex items-center">
-        <Image className="me-3 md:w-16 sm:w-[60px] xs:w-12" alt="" src={Logo} />
+        <Image className="me-3 md:w-16 sm:w-[60px] xs:w-12" alt="landscaping , Gardening services and security services in Kerala" src={Logo} />
         <div className="font-bold xs:text-xl sm:text-2xl md:text-3xl lg:text-2xl 3xl:text-4xl 2xl:text-3xl xl:text-3l">
           Karma <span className="text-secText">Solutions</span>
         </div>

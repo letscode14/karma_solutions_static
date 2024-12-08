@@ -48,7 +48,7 @@ export default function Services() {
           } transition-all duration-1000 ease-in-out`}
         >
           <Image
-            alt="Lawn Service Icon"
+            alt="Lawn Service landscaping services and security services in Kerala"
             src={lawnIcon}
             className="w-16"
             priority // Faster load for primary icon image
@@ -69,7 +69,7 @@ export default function Services() {
         >
           <Image
             src="/image1.jpg"
-            alt="Landscaping Service"
+            alt="Landscaping Service  landscaping services and security services in Kerala"
             layout="fill"
             objectFit="cover"
             objectPosition="center"
@@ -110,7 +110,7 @@ export default function Services() {
         >
           <Image
             src="/maintenance.jpg"
-            alt="Maintenance Service"
+            alt="Maintenance Service landscaping services and security services in Kerala"
             layout="fill"
             objectFit="cover"
             objectPosition="center"
@@ -151,7 +151,7 @@ export default function Services() {
         >
           <Image
             src="/1718342817.webp"
-            alt="Security Service"
+            alt="Security Service landscaping services and security services in Kerala"
             layout="fill"
             objectFit="cover"
             objectPosition="center"

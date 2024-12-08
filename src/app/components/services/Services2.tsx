@@ -28,7 +28,7 @@ export default function Services2() {
     >
       <div className="xs:block lg:flex p-4 xs:p-0">
         <div className="  lg:hidden xs:w-full  mb-5 flex justify-center">
-          <Image className="max-w-[430px] w-full " src={securityImage} alt="" />
+          <Image className="max-w-[430px] w-full " src={securityImage} alt="landscaping services and security services in Kerala" />
         </div>
         <div className="  xs:w-full lg:w-[60%] ps-10 xs:ps-0">
           <div className="xl:text-6xl lg:text-5xl xs:text-5xl   uppercase  tracking-wide font-bold ">
@@ -71,7 +71,7 @@ export default function Services2() {
           </div>
         </div>
         <div className=" lg:w-[40%]  xs:hidden  xs:mt-7 lg:flex justify-center">
-          <Image className="max-w-[500px] w-full " src={securityImage} alt="" />
+          <Image className="max-w-[500px] w-full " src={securityImage} alt="landscaping services and security services in Kerala" />
         </div>
       </div>
     </div>

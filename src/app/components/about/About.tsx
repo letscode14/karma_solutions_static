@@ -56,7 +56,7 @@ export default function About() {
     <div className="relative xl:h-[600px]   lg:h-[780px] md:h-[780px] sm:h-[700px] xs:h-[900px] flex justify-end bg-blue-400 overflow-hidden">
       <Image
         src="https://res.cloudinary.com/dcoy7olo9/image/upload/v1731139074/fresh-park-nature-beautiful-backgrounds_1_vie9yx.jpg"
-        alt="Nature background"
+        alt="landscaping services and security services in Kerala"
         layout="fill"
         objectFit="cover"
         priority
@@ -66,7 +66,7 @@ export default function About() {
         <div className="w-full mt-3 flex justify-start">
           <Image
             className="transition-opacity duration-700 z-10"
-            alt="Security Personnel"
+            alt="landscaping services and security services in kochi"
             src={securityImg}
             height={200}
             priority
@@ -76,7 +76,7 @@ export default function About() {
         <div className="w-full mt-3 max-w-60   flex justify-end">
           <Image
             className="transition opacity  duration-700 z-10"
-            alt="Gardener with weedwacker"
+            alt="Gardening services and security services in Kerala"
             src={gardenCutterImg}
             priority
             placeholder="blur"
@@ -86,7 +86,7 @@ export default function About() {
         <div className="w-full mt-3 flex justify-end">
           <Image
             className="transition-opacity duration-700  z-10"
-            alt="Repairman with lawn mower"
+            alt="landscaping services and security services in Kerala"
             src={repairImage}
             height={200}
             priority

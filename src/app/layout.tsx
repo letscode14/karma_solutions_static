@@ -31,13 +31,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>
-           Landscaping Services | Security Service & Garden Design
-        </title>
+        <title>Landscaping Services | Security Service & Garden Design</title>
         <meta
           name="description"
-          content="landscaping and security services in Kerala. Contact us for garden design, lawn care, and 24/7 security solutions."
+          content="landscaping and security services. Contact us for expert garden design and 24/7 security solutions in Kerala."
         />
+        <meta
+          name="keywords"
+          content="landscaping, security services, garden design"
+        />
+        <meta name="robots" content="index, follow" />
+
         <link rel="icon" href="favicon.ico" />
       </head>
       <body

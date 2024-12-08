@@ -95,7 +95,7 @@ const UploadPage: React.FC = () => {
           >
             <Image
               src={preview.url}
-              alt="Preview"
+              alt="landscaping services and security services in Kerala"
               width={80}
               height={80}
               className="mt-4 w-full h-48 object-cover rounded-lg"

@@ -13,7 +13,7 @@ const ImageViewer = () => {
         {imgUrl ? (
           <Image
             src={imgUrl}
-            alt="Image description"
+            alt="Lawn maintaince landscaping services and security services in Kerala"
             layout="intrinsic"
             width={800} // Replace with your image's width
             height={500} // Replace with your image's height

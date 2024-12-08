@@ -104,7 +104,7 @@ export default function Footer() {
             <div className="flex items-center">
               <Image
                 className="xl:w-20 lg:w-16 md:w-20 sm:w-16  xs:w-16 "
-                alt=""
+                alt="Gardening landscaping services and security services in Kerala"
                 src={logo}
               />
             </div>

@@ -32,7 +32,7 @@ export default function Home() {
       <div className="absolute inset-0 -z-10">
         <Image
           src="/wallpaperflare.com_wallpaper.jpg"
-          alt="Background"
+          alt="landscaping services and security services in Kerala"
           layout="fill"
           objectFit="cover"
           quality={75}
